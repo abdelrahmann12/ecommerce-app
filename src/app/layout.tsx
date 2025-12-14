@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Encode_Sans } from "next/font/google";
 import "./globals.css";
+import Navbar from "./_Component/Navbar/Navbar";
+import { Toaster } from "@/components/ui/sonner";
+import UserProvider from "@/UserProvider";
+import CountProvider from "@/CountProvider";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import Footer from "./_Component/Footer/Footer";
+config.autoAddCss = false;
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const enCodeSansFont = Encode_Sans({
   subsets: ["latin"],
+  weight: ["100", "400", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +28,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${enCodeSansFont.className}`}>
+        <UserProvider>
+
+          <CountProvider>
+            
+            <Navbar></Navbar>
+            {children}
+            <Footer></Footer>
+            <Toaster></Toaster>
+          </CountProvider>
+          
+        </UserProvider>
       </body>
     </html>
   );
