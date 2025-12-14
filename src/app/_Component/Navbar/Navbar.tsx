@@ -38,7 +38,7 @@ export default function Navbar() {
   return (
     <NavigationMenu className=" max-w-full flex  justify-between bg-white px-2">
       <NavigationMenuLink>
-            <h1 className=" text-4xl">Ali Mama</h1>
+            <h1 className=" text-4xl">Market X</h1>
           </NavigationMenuLink>
       <NavigationMenuList className="hidden md:flex gap-5">
         <NavigationMenuItem>
