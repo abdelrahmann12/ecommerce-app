@@ -129,7 +129,7 @@ export default function Navbar() {
 
           <NavigationMenuLink href="/cart">
           <ShoppingCart className="!w-8 !h-8 relative  text-black" />
-          <span className="absolute top-0.5 right-0.5 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
+          <span className="absolute top-85 right-15 w-5 h-5 bg-black rounded-full flex items-center justify-center text-white">
              0
           </span>
         </NavigationMenuLink>

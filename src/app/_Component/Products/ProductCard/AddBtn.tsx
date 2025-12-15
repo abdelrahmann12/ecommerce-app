@@ -4,7 +4,14 @@ import { Button } from '@/components/ui/button'
 import React from 'react'
 import { toast } from 'sonner'
 
-export default function AddBtn({id}:{id:string}) {
+
+type AddBtnProps = {
+  id: string,
+  className?: string // إضافة خاصية لتغيير الكلاس من برا
+}
+
+
+export default function AddBtn({id , className}:AddBtnProps) {
 
 
     async function AddProduct(id:string){
@@ -19,11 +26,9 @@ export default function AddBtn({id}:{id:string}) {
     }
     
   return (
-    <>
-    
-    <Button onClick={()=>{AddProduct(id)}} className='bg-main  cursor-pointer'>
+    <Button onClick={()=>{AddProduct(id)}} className ={`bg-main  cursor-pointer w-fit ${className ? className : '' } `} >
         Add To Cart
     </Button>
-    </>
+
   )
 }

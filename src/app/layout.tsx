@@ -8,6 +8,7 @@ import CountProvider from "@/CountProvider";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Footer from "./_Component/Footer/Footer";
+import Marquee from "./_Component/marquee/Marquee";
 config.autoAddCss = false;
 
 const enCodeSansFont = Encode_Sans({
@@ -32,7 +33,7 @@ export default function RootLayout({
         <UserProvider>
 
           <CountProvider>
-            
+            <Marquee></Marquee>
             <Navbar></Navbar>
             {children}
             <Footer></Footer>

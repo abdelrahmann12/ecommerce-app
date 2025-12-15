@@ -33,7 +33,7 @@ export default function Productcard({ product }: { product: ProductData }) {
         </Link>
           <CardTitle className="text-main">{brand.name}</CardTitle>
           <CardDescription>{category.name}</CardDescription>
-          <CardDescription>{price}</CardDescription>
+          <CardDescription className=" text-black">$ {price}</CardDescription>
            {/* <span>{ratingsAverage}{ratingsQuantity}</span> */}
         </CardHeader>
         {/* <CardContent>

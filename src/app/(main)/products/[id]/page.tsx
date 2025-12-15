@@ -37,15 +37,36 @@ export default async function page({ params }: { params: { id: string } }) {
           <ProductSlider images={images}></ProductSlider>
         </div>
         <div className=" col-span-9">
-          <Card className="h-96">
+          <Card className="h-[95%]">
             <CardHeader>
               <CardTitle className=" text-xl">{brand.name}</CardTitle>
-              <h2>{title}</h2>
+              <h2 className=" font-bold text-3xl">{title}</h2>
               <CardDescription className="py-5">{description}</CardDescription>
               <div className="price">
-                <p>EGP{price}</p>
+                <p className="font-semibold ">
+               <del className=" te text-gray-500 me-2">EGP {price + 100}</del>
+               EGP{price}</p>
               </div>
-              <AddBtn  id={_id}>
+              <div className="Available flex items-center gap-3">
+                <h3 className="text-gray-600">in stock</h3>
+                <h4 className=" bg-slate-600 text-white rounded-2xl px-3 text-[14px]">Available</h4>
+              </div>
+              <div className="size my-2">
+                <span>Size</span>
+                <div className="sizes flex  gap-6">
+                  <div className="small bg-black text-white rounded-2xl px-3 cursor-pointer">
+                    S
+                  </div>
+                  <div className="medium bg-gray-200  rounded-2xl px-3 cursor-pointer">
+                    M
+                  </div>
+                  <div className="large  bg-gray-200  rounded-2xl px-3 cursor-pointer">
+                    L
+                  </div>
+                </div>
+              </div>
+
+              <AddBtn className="bg-black" id={_id}>
               </AddBtn>
 
             </CardHeader>
