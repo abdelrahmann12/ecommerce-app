@@ -36,9 +36,6 @@ export default function Productcard({ product }: { product: ProductData }) {
           <CardDescription className=" text-black">$ {price}</CardDescription>
            {/* <span>{ratingsAverage}{ratingsQuantity}</span> */}
         </CardHeader>
-        {/* <CardContent>
-    <p>Card Content</p>
-  </CardContent> */}
         <CardFooter className=" flex items-center justify-between">
          
          

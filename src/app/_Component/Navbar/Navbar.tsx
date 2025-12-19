@@ -79,7 +79,7 @@ export default function Navbar() {
         )}
         <NavigationMenuLink href="/cart">
          <ShoppingCart className="!w-7 !h-7 relative  text-black" />
-          <span className=" absolute -top-1 right-14 w-4 h-4 bg-black text-white rounded-full flex items-center justify-center">
+          <span className=" absolute -top-1 right-14  w-4 h-4 bg-black text-white rounded-full flex items-center justify-center">
              {count?.count}
           </span>
         </NavigationMenuLink>

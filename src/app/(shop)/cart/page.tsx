@@ -55,10 +55,8 @@ export default function Page() {
   return (
     <div>
       <Breadcrumb></Breadcrumb>
-      <Button onClick={ClearProducts} className=" bg-red-500 ms-[80%] my-4 ">
-        Clear Cart
-      </Button>
-
+      
+      
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -194,7 +192,13 @@ export default function Page() {
           </tbody>
         </table>
       </div>
-      <Button className="ms-[70%] my-4 bg-main"> <Link className=" text-white!" href={`/checkoutsession/` + cart?._id}>CheckoutSession</Link></Button>
+      <div className=" flex items-center justify-between px-5">
+
+      <Button className=" my-4 bg-main"> <Link className=" text-white!" href={`/checkoutsession/` + cart?._id}>CheckoutSession</Link></Button>
+      <Button onClick={ClearProducts} className=" bg-red-500  my-4 ">
+        Clear Cart
+      </Button>
+      </div>
     </div>
   );
 }

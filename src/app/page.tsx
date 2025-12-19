@@ -1,8 +1,6 @@
 import { ProductData, Products } from "@/types/Products";
 import Productcard from "./_Component/Products/ProductCard/Productcard";
 import MainSlider from "./_Component/MainSlider/MainSlider";
-import { GetTokenValue } from "@/getUserToken";
-
 import { Package } from 'lucide-react';
 import { CreditCard } from 'lucide-react';
 import { MessagesSquare } from 'lucide-react';
@@ -19,8 +17,6 @@ export default async function Home() {
     })
     const data:Products = await res.json()
     const productsData:ProductData[] =  data.data;
-    const token = await GetTokenValue()
-    console.log("token is" , token)
   
  
 

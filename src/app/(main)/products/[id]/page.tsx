@@ -27,17 +27,16 @@ export default async function page({ params }: { params: { id: string } }) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async function AddCart(id: string) {
     const data = await AddBtnToCart(id);
-    console.log(data);
     return data;
   }
   return (
-    <div>
-      <div className="grid grid-cols-12">
-        <div className=" col-span-3">
+    <div className="">
+      <div className="grid grid-cols-1 md:grid-cols-12  gap-4">
+        <div className=" md:col-span-3">
           <ProductSlider images={images}></ProductSlider>
         </div>
-        <div className=" col-span-9">
-          <Card className="h-[95%]">
+        <div className=" md:col-span-9">
+          <Card className=" h-[95%]">
             <CardHeader>
               <CardTitle className=" text-xl">{brand.name}</CardTitle>
               <h2 className=" font-bold text-3xl">{title}</h2>
@@ -70,9 +69,6 @@ export default async function page({ params }: { params: { id: string } }) {
               </AddBtn>
 
             </CardHeader>
-            {/* <CardContent>
-    <p>Card Content</p>
-  </CardContent> */}
             <CardFooter className=" flex items-center justify-between"></CardFooter>
           </Card>
         </div>

@@ -1,51 +1,66 @@
-"use client"
+"use client";
 import { WishList } from "@/types/WishListData";
 import { getAllWishList } from "@/wishListActions";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Breadcrumb from "@/app/_Component/Breadcrumb/Breadcrumb";
 import AddBtn from "@/app/_Component/Products/ProductCard/AddBtn";
-import { Star } from 'lucide-react';
+import { Star } from "lucide-react";
 import RemoveWishBtn from "@/app/_Component/Products/ProductCard/RemoveWishBtn";
 
-export default  function Page() {
-    const [wishList , setWishList] = useState<WishList>()
+export default function Page() {
+  const [wishList, setWishList] = useState<WishList>();
 
-    async function getWishData(){
-      const WishData = await getAllWishList()
-      console.log("wish is" , WishData);
-      setWishList(WishData)
-    } 
+  async function getWishData() {
+    const WishData = await getAllWishList();
+    console.log("wish is", WishData);
+    setWishList(WishData);
+  }
 
-   
-  useEffect(()=>{
-    getWishData()
-  },[])  
+  useEffect(() => {
+    getWishData();
+  }, []);
 
   return (
     <div>
       <Breadcrumb></Breadcrumb>
       <div className="relative py-5 shadow-md sm:rounded-lg">
-        {wishList?.data.map((wish=>{
-          return  <div key={wish._id} className="wish-table flex items-center justify-between flex-wrap">
-          <div className="left-side flex gap-2 items-center">
-            <div className="img">
-              <Image src={wish.imageCover} width={150} height={150} alt="product-image"></Image>
+        {wishList?.data.map((wish) => {
+          return (
+            <div
+              key={wish._id}
+              className="wish-table flex flex-col items-center md:flex-row  md:justify-between flex-wrap"
+            >
+              <div className="left-side flex gap-2 items-center">
+                <div className="img">
+                  <Image
+                    className="w-[100px] sm:w-[300px] md:w-[200px]"
+                    src={wish.imageCover}
+                    width={200}
+                    height={200}
+                    alt="product-image"
+                    sizes="(max-width: 640px) 150px,
+                          (max-width: 1024px) 500px,
+                           600px"
+                  ></Image>
+                </div>
+                <div className="product-details space-y-1">
+                  <h2>{wish.title}</h2>
+                  <p>{wish.price} $</p>
+                  <h3 className=" flex items-center gap-1">
+                    <Star className=" w-5 fill-yellow-300" />
+                    {wish.ratingsAverage}
+                  </h3>
+                </div>
+              </div>
+              <div className="right-side flex items-center flex-row md:flex-col gap-8 lg:( flex-row)">
+                <AddBtn id={wish._id}></AddBtn>
+                <RemoveWishBtn id={wish._id}></RemoveWishBtn>
+              </div>
             </div>
-            <div className="product-details space-y-1">
-              <h2>{wish.title}</h2>
-              <p>{wish.price} $</p>
-              <h3 className=" flex items-center gap-1"><Star className=" w-5 fill-yellow-300" />{wish.ratingsAverage}</h3>
+          );
+        })}
 
-            </div>
-          </div>
-          <div className="right-side flex items-center flex-col gap-4 lg:( flex-row)">
-            <AddBtn id={wish._id}></AddBtn>
-            <RemoveWishBtn id={wish._id}></RemoveWishBtn>
-          </div>
-        </div>
-        }))}
-       
         {/* <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
